@@ -379,10 +379,5 @@ namespace BISU_AMS_Desktop
             else
                 MessageBox.Show(Academe.DeleteCourseErrorMessage);
         }
-
-        private void AcademeManagementForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

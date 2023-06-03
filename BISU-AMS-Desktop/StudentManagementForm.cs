@@ -7,6 +7,7 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using BISU_AMS_Desktop.Dal;
 
 namespace BISU_AMS_Desktop
 {
@@ -74,5 +75,26 @@ namespace BISU_AMS_Desktop
             AddStudentForm asf = new AddStudentForm();
             asf.ShowDialog();
         }
+        DataTable dtstudentlist;
+        private void bwStudent_Management_DoWork(object sender, DoWorkEventArgs e)
+        {
+            dtstudentlist = Students.GetStudents();
+            bwgetstudents.CancelAsync();
+        }
+
+        private void bwgetstudents_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (Students.GetStudentsSucessful)
+            {
+                dtStudent.DataSource = dtstudentlist;
+            }
+
+        }
+
+        private void StudentManagementForm_Shown(object sender, EventArgs e)
+        {
+            bwgetstudents.RunWorkerAsync();
+        }
+
     }
 }

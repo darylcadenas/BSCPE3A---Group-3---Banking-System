@@ -8,7 +8,7 @@ namespace BISU_AMS_Desktop.Core
 {
     public class PublicVariables
     {
-        public static string ServerConnectionString = "Server = localhost; Database = GwapoTanan; Uid = root; Pwd = ; Port = 3306;";
+        public static string ServerConnectionString = "Server = localhost; Database = ams; Uid = system_admin; Pwd = system_admin; Port = 3306;";
 
         #region User Credentials
 

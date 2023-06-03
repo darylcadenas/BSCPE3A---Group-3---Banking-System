@@ -18,23 +18,3 @@ C:\Users\canabe\Documents\GitHub\BISU-AMS\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\
 C:\Users\canabe\Documents\GitHub\BISU-AMS\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.exe.licenses
 C:\Users\canabe\Documents\GitHub\BISU-AMS\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.exe
 C:\Users\canabe\Documents\GitHub\BISU-AMS\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.pdb
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\bin\Debug\BISU-AMS-Desktop.exe.config
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.exe
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.pdb
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\bin\Debug\BISU-AMS-Desktop.exe
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\bin\Debug\BISU-AMS-Desktop.pdb
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.csprojResolveAssemblyReference.cache
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.AcademeManagementForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.AddStudentForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.AttendanceForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.EventManagementForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.FinesManagementForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.LoginForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.MainForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.Properties.Resources.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.StudentManagementForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.StudentsFineBreakdown.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.UserManagementForm.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU_AMS_Desktop.WaitForm1.resources
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.csproj.GenerateResource.Cache
-C:\Users\canabe\Documents\GitHub\BISU-AMS - Copy\BISU-AMS-Desktop\BISU-AMS-Desktop\obj\Debug\BISU-AMS-Desktop.exe.licenses

@@ -48,7 +48,6 @@
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
             this.txtUserName.Size = new System.Drawing.Size(176, 24);
             this.txtUserName.TabIndex = 0;
-            this.txtUserName.EditValueChanged += new System.EventHandler(this.txtUserName_EditValueChanged);
             // 
             // labelControl1
             // 
@@ -95,12 +94,9 @@
             // bwLogin
             // 
             this.bwLogin.WorkerSupportsCancellation = true;
-            this.bwLogin.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwLogin_DoWork);
-            this.bwLogin.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwLogin_RunWorkerCompleted);
             // 
             // LoginForm
             // 
-            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 323);

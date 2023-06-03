@@ -100,20 +100,20 @@
             this.pnlDepartment.Controls.Add(this.btnEdit);
             this.pnlDepartment.Controls.Add(this.btnAdd);
             this.pnlDepartment.Controls.Add(this.dtDepartment);
-            this.pnlDepartment.Location = new System.Drawing.Point(7, 6);
+            this.pnlDepartment.Location = new System.Drawing.Point(8, 8);
             this.pnlDepartment.Margin = new System.Windows.Forms.Padding(2);
             this.pnlDepartment.Name = "pnlDepartment";
-            this.pnlDepartment.Size = new System.Drawing.Size(320, 526);
+            this.pnlDepartment.Size = new System.Drawing.Size(373, 648);
             this.pnlDepartment.TabIndex = 0;
             // 
             // btnCancelDept
             // 
             this.btnCancelDept.Enabled = false;
             this.btnCancelDept.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelDept.Image")));
-            this.btnCancelDept.Location = new System.Drawing.Point(123, 497);
+            this.btnCancelDept.Location = new System.Drawing.Point(144, 612);
             this.btnCancelDept.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelDept.Name = "btnCancelDept";
-            this.btnCancelDept.Size = new System.Drawing.Size(94, 20);
+            this.btnCancelDept.Size = new System.Drawing.Size(110, 25);
             this.btnCancelDept.TabIndex = 17;
             this.btnCancelDept.Text = "Cancel";
             this.btnCancelDept.Click += new System.EventHandler(this.btnCancelDept_Click);
@@ -121,31 +121,31 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(3, 2);
+            this.labelControl5.Location = new System.Drawing.Point(4, 3);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(146, 25);
+            this.labelControl5.Size = new System.Drawing.Size(181, 31);
             this.labelControl5.TabIndex = 16;
             this.labelControl5.Text = "DEPARTMENT";
             // 
             // txtAbbreviation
             // 
             this.txtAbbreviation.Enabled = false;
-            this.txtAbbreviation.Location = new System.Drawing.Point(124, 474);
+            this.txtAbbreviation.Location = new System.Drawing.Point(145, 584);
             this.txtAbbreviation.Margin = new System.Windows.Forms.Padding(2);
             this.txtAbbreviation.Name = "txtAbbreviation";
             this.txtAbbreviation.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAbbreviation.Properties.Appearance.Options.UseFont = true;
-            this.txtAbbreviation.Size = new System.Drawing.Size(191, 22);
+            this.txtAbbreviation.Size = new System.Drawing.Size(223, 26);
             this.txtAbbreviation.TabIndex = 15;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(39, 476);
+            this.labelControl2.Location = new System.Drawing.Point(46, 586);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(76, 16);
+            this.labelControl2.Size = new System.Drawing.Size(96, 19);
             this.labelControl2.TabIndex = 14;
             this.labelControl2.Text = "Abbreviation:";
             // 
@@ -153,10 +153,10 @@
             // 
             this.btnSave.Enabled = false;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(221, 497);
+            this.btnSave.Location = new System.Drawing.Point(258, 612);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 20);
+            this.btnSave.Size = new System.Drawing.Size(110, 25);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -164,31 +164,31 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(3, 454);
+            this.labelControl1.Location = new System.Drawing.Point(4, 559);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(109, 16);
+            this.labelControl1.Size = new System.Drawing.Size(135, 19);
             this.labelControl1.TabIndex = 12;
             this.labelControl1.Text = "Department Name:";
             // 
             // txtDepartmentName
             // 
             this.txtDepartmentName.Enabled = false;
-            this.txtDepartmentName.Location = new System.Drawing.Point(124, 453);
+            this.txtDepartmentName.Location = new System.Drawing.Point(145, 557);
             this.txtDepartmentName.Margin = new System.Windows.Forms.Padding(2);
             this.txtDepartmentName.Name = "txtDepartmentName";
             this.txtDepartmentName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartmentName.Properties.Appearance.Options.UseFont = true;
-            this.txtDepartmentName.Size = new System.Drawing.Size(191, 22);
+            this.txtDepartmentName.Size = new System.Drawing.Size(223, 26);
             this.txtDepartmentName.TabIndex = 11;
             // 
             // btnRefresh
             // 
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(242, 30);
+            this.btnRefresh.Location = new System.Drawing.Point(282, 37);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(74, 24);
+            this.btnRefresh.Size = new System.Drawing.Size(86, 29);
             this.btnRefresh.TabIndex = 10;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -196,10 +196,10 @@
             // btnDelete
             // 
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.Location = new System.Drawing.Point(165, 30);
+            this.btnDelete.Location = new System.Drawing.Point(192, 37);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(74, 24);
+            this.btnDelete.Size = new System.Drawing.Size(86, 29);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -207,10 +207,10 @@
             // btnEdit
             // 
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.Location = new System.Drawing.Point(87, 30);
+            this.btnEdit.Location = new System.Drawing.Point(101, 37);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(74, 24);
+            this.btnEdit.Size = new System.Drawing.Size(86, 29);
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -218,24 +218,22 @@
             // btnAdd
             // 
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.Location = new System.Drawing.Point(3, 30);
+            this.btnAdd.Location = new System.Drawing.Point(3, 37);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 24);
+            this.btnAdd.Size = new System.Drawing.Size(94, 29);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dtDepartment
             // 
-            this.dtDepartment.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtDepartment.Location = new System.Drawing.Point(3, 57);
+            this.dtDepartment.Location = new System.Drawing.Point(4, 70);
             this.dtDepartment.MainView = this.gvDepartment;
-            this.dtDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtDepartment.Name = "dtDepartment";
             this.dtDepartment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit1});
-            this.dtDepartment.Size = new System.Drawing.Size(313, 391);
+            this.dtDepartment.Size = new System.Drawing.Size(365, 481);
             this.dtDepartment.TabIndex = 6;
             this.dtDepartment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDepartment});
@@ -310,20 +308,20 @@
             this.pnlCourse.Controls.Add(this.txtCourseName);
             this.pnlCourse.Controls.Add(this.btnCourseAdd);
             this.pnlCourse.Controls.Add(this.btnCourseEdit);
-            this.pnlCourse.Location = new System.Drawing.Point(331, 6);
+            this.pnlCourse.Location = new System.Drawing.Point(386, 8);
             this.pnlCourse.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCourse.Name = "pnlCourse";
-            this.pnlCourse.Size = new System.Drawing.Size(319, 526);
+            this.pnlCourse.Size = new System.Drawing.Size(372, 648);
             this.pnlCourse.TabIndex = 1;
             // 
             // btnCancelCourse
             // 
             this.btnCancelCourse.Enabled = false;
             this.btnCancelCourse.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelCourse.Image")));
-            this.btnCancelCourse.Location = new System.Drawing.Point(123, 497);
+            this.btnCancelCourse.Location = new System.Drawing.Point(144, 612);
             this.btnCancelCourse.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelCourse.Name = "btnCancelCourse";
-            this.btnCancelCourse.Size = new System.Drawing.Size(94, 20);
+            this.btnCancelCourse.Size = new System.Drawing.Size(110, 25);
             this.btnCancelCourse.TabIndex = 18;
             this.btnCancelCourse.Text = "Cancel";
             this.btnCancelCourse.Click += new System.EventHandler(this.btnCancelCourse_Click);
@@ -331,42 +329,40 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(3, 2);
+            this.labelControl6.Location = new System.Drawing.Point(4, 3);
             this.labelControl6.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(87, 25);
+            this.labelControl6.Size = new System.Drawing.Size(107, 31);
             this.labelControl6.TabIndex = 17;
             this.labelControl6.Text = "COURSE";
             // 
             // txtCourseAbb
             // 
             this.txtCourseAbb.Enabled = false;
-            this.txtCourseAbb.Location = new System.Drawing.Point(123, 474);
+            this.txtCourseAbb.Location = new System.Drawing.Point(144, 584);
             this.txtCourseAbb.Margin = new System.Windows.Forms.Padding(2);
             this.txtCourseAbb.Name = "txtCourseAbb";
             this.txtCourseAbb.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCourseAbb.Properties.Appearance.Options.UseFont = true;
-            this.txtCourseAbb.Size = new System.Drawing.Size(192, 22);
+            this.txtCourseAbb.Size = new System.Drawing.Size(224, 26);
             this.txtCourseAbb.TabIndex = 20;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(40, 476);
+            this.labelControl3.Location = new System.Drawing.Point(47, 586);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(76, 16);
+            this.labelControl3.Size = new System.Drawing.Size(96, 19);
             this.labelControl3.TabIndex = 19;
             this.labelControl3.Text = "Abbreviation:";
             // 
             // dtCourses
             // 
-            this.dtCourses.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtCourses.Location = new System.Drawing.Point(3, 57);
+            this.dtCourses.Location = new System.Drawing.Point(3, 70);
             this.dtCourses.MainView = this.gvCourses;
-            this.dtCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtCourses.Name = "dtCourses";
-            this.dtCourses.Size = new System.Drawing.Size(313, 391);
+            this.dtCourses.Size = new System.Drawing.Size(365, 481);
             this.dtCourses.TabIndex = 16;
             this.dtCourses.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCourses});
@@ -414,10 +410,10 @@
             // 
             this.btnSaveCourse.Enabled = false;
             this.btnSaveCourse.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveCourse.Image")));
-            this.btnSaveCourse.Location = new System.Drawing.Point(221, 497);
+            this.btnSaveCourse.Location = new System.Drawing.Point(258, 612);
             this.btnSaveCourse.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveCourse.Name = "btnSaveCourse";
-            this.btnSaveCourse.Size = new System.Drawing.Size(94, 20);
+            this.btnSaveCourse.Size = new System.Drawing.Size(110, 25);
             this.btnSaveCourse.TabIndex = 18;
             this.btnSaveCourse.Text = "Save";
             this.btnSaveCourse.Click += new System.EventHandler(this.btnSaveCourse_Click);
@@ -425,10 +421,10 @@
             // btnCourseRefresh
             // 
             this.btnCourseRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseRefresh.Image")));
-            this.btnCourseRefresh.Location = new System.Drawing.Point(243, 30);
+            this.btnCourseRefresh.Location = new System.Drawing.Point(283, 37);
             this.btnCourseRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourseRefresh.Name = "btnCourseRefresh";
-            this.btnCourseRefresh.Size = new System.Drawing.Size(74, 24);
+            this.btnCourseRefresh.Size = new System.Drawing.Size(86, 29);
             this.btnCourseRefresh.TabIndex = 19;
             this.btnCourseRefresh.Text = "Refresh";
             this.btnCourseRefresh.Click += new System.EventHandler(this.btnCourseRefresh_Click);
@@ -436,20 +432,20 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(35, 454);
+            this.labelControl4.Location = new System.Drawing.Point(41, 559);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(82, 16);
+            this.labelControl4.Size = new System.Drawing.Size(101, 19);
             this.labelControl4.TabIndex = 17;
             this.labelControl4.Text = "Course Name:";
             // 
             // btnCourseDelete
             // 
             this.btnCourseDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseDelete.Image")));
-            this.btnCourseDelete.Location = new System.Drawing.Point(165, 30);
+            this.btnCourseDelete.Location = new System.Drawing.Point(192, 37);
             this.btnCourseDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourseDelete.Name = "btnCourseDelete";
-            this.btnCourseDelete.Size = new System.Drawing.Size(74, 24);
+            this.btnCourseDelete.Size = new System.Drawing.Size(86, 29);
             this.btnCourseDelete.TabIndex = 18;
             this.btnCourseDelete.Text = "Delete";
             this.btnCourseDelete.Click += new System.EventHandler(this.btnCourseDelete_Click);
@@ -457,21 +453,21 @@
             // txtCourseName
             // 
             this.txtCourseName.Enabled = false;
-            this.txtCourseName.Location = new System.Drawing.Point(123, 453);
+            this.txtCourseName.Location = new System.Drawing.Point(144, 557);
             this.txtCourseName.Margin = new System.Windows.Forms.Padding(2);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.857143F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCourseName.Properties.Appearance.Options.UseFont = true;
-            this.txtCourseName.Size = new System.Drawing.Size(192, 22);
+            this.txtCourseName.Size = new System.Drawing.Size(224, 26);
             this.txtCourseName.TabIndex = 16;
             // 
             // btnCourseAdd
             // 
             this.btnCourseAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseAdd.Image")));
-            this.btnCourseAdd.Location = new System.Drawing.Point(3, 30);
+            this.btnCourseAdd.Location = new System.Drawing.Point(4, 37);
             this.btnCourseAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourseAdd.Name = "btnCourseAdd";
-            this.btnCourseAdd.Size = new System.Drawing.Size(81, 24);
+            this.btnCourseAdd.Size = new System.Drawing.Size(94, 29);
             this.btnCourseAdd.TabIndex = 16;
             this.btnCourseAdd.Text = "Add";
             this.btnCourseAdd.Click += new System.EventHandler(this.btnCourseAdd_Click);
@@ -479,10 +475,10 @@
             // btnCourseEdit
             // 
             this.btnCourseEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnCourseEdit.Image")));
-            this.btnCourseEdit.Location = new System.Drawing.Point(87, 30);
+            this.btnCourseEdit.Location = new System.Drawing.Point(102, 37);
             this.btnCourseEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnCourseEdit.Name = "btnCourseEdit";
-            this.btnCourseEdit.Size = new System.Drawing.Size(74, 24);
+            this.btnCourseEdit.Size = new System.Drawing.Size(86, 29);
             this.btnCourseEdit.TabIndex = 17;
             this.btnCourseEdit.Text = "Edit";
             this.btnCourseEdit.Click += new System.EventHandler(this.btnCourseEdit_Click);
@@ -525,9 +521,9 @@
             // 
             // AcademeManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 540);
+            this.ClientSize = new System.Drawing.Size(766, 664);
             this.Controls.Add(this.pnlCourse);
             this.Controls.Add(this.pnlDepartment);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -537,7 +533,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AcademeManagementForm";
-            this.Load += new System.EventHandler(this.AcademeManagementForm_Load);
             this.Shown += new System.EventHandler(this.AcademeManagementForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pnlDepartment)).EndInit();
             this.pnlDepartment.ResumeLayout(false);

@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using BISU_AMS_Desktop.Dal;
+
 namespace BISU_AMS_Desktop
 {
     public partial class LoginForm : DevExpress.XtraEditors.XtraForm
@@ -56,23 +57,29 @@ namespace BISU_AMS_Desktop
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUserName.Text) && string.IsNullOrEmpty(txtPassword.Text))
+            if (string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtUserName.Text))
             {
-                MessageBox.Show("Please input username and password");
-                txtUserName.Focus();
-                txtUserName.Select();
+                MessageBox.Show("Please Input Username and Password.");
+                if (string.IsNullOrEmpty(txtUserName.Text))
+                {
+                    txtUserName.Focus();
+                    txtUserName.Select();
+                }
+                else if (string.IsNullOrEmpty(txtPassword.Text))
+                {
+                    txtPassword.Focus();
+                    txtPassword.Select();
+                }
             }
             else
             {
-                //verify
-                VerifyLogin();
-               
+                verifyLogin();
             }
         }
 
         private void LoginForm_Shown(object sender, EventArgs e)
         {
-            //non-static background image;
+            //non-static background image
             //string LocalDirectory = Directory.GetCurrentDirectory();
             //string BgFilePath = LocalDirectory + "\\images\\background.jpg";
             //this.BackgroundImage = Image.FromFile(BgFilePath);
@@ -80,13 +87,7 @@ namespace BISU_AMS_Desktop
             //string IconFilePath = LocalDirectory + "\\images\\icon.ico";
             //this.Icon = Properties.Resources.BisuIcon;
         }
-
-        private void txtUserName_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void VerifyLogin()
+        private void verifyLogin()
         {
             if (!bwLogin.IsBusy)
             {
@@ -105,10 +106,10 @@ namespace BISU_AMS_Desktop
         private void bwLogin_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HideLoading();
-            if (Users.GeLoginSucessful)
+            if (Users.GetLoginSucessful)
             {
                 MessageBox.Show("Login successful!");
-                 MainForm mf = new MainForm();
+                MainForm mf = new MainForm();
                 this.Hide();
                 mf.Show();
             }

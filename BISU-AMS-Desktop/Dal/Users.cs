@@ -13,7 +13,8 @@ namespace BISU_AMS_Desktop.Dal
         {
             return PublicVariables.ServerConnectionString;
         }
-        public static bool GeLoginSucessful = false;
+
+        public static bool GetLoginSucessful = false;
         public static string GetLoginErrorMessage;
         public static DataTable GetLogin(string username, string password)
         {
@@ -23,14 +24,14 @@ namespace BISU_AMS_Desktop.Dal
                 using (MySqlConnection con = new MySqlConnection(ConnectionString()))
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = " + username  + " AND  password = " + password + ";", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM users WHERE username = '" + username + "' AND  password = PASSWORD('" + password + "');", con);
                     //cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
                     con.Close();
                     if (dt.Rows.Count > 0)
                     {
-                        GeLoginSucessful = true;
+                        GetLoginSucessful = true;
                         return dt;
                     }
                     else
@@ -39,7 +40,7 @@ namespace BISU_AMS_Desktop.Dal
             }
             catch (Exception ex)
             {
-                GeLoginSucessful = false;
+                GetLoginSucessful = false;
                 GetLoginErrorMessage = ex.Message + "\nFunction : Get Login";
                 return null;
             }
