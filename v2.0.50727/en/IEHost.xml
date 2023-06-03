@@ -1,0 +1,562 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>IEHost</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.IE.Manager">
+      <summary>
+                    Provides methods for enabling managed code to execute as an ActiveX control.
+                </summary>
+    </member>
+    <member name="M:Microsoft.IE.Manager.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:Microsoft.IE.Manager" /> class. 
+                </summary>
+    </member>
+    <member name="M:Microsoft.IE.Manager.AreOnTheSameSite(System.String,System.String)">
+      <summary>
+                    Gets a value that indicates whether the site portion of two URLs have the same canonicalized values. 
+                </summary>
+      <returns>true if the two URLs are on the same site; otherwise, false. 
+                </returns>
+      <param name="pURL1">
+                    The first URL to compare.
+                </param>
+      <param name="pURL2">
+                    The second URL to compare.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.AreTheSame(System.String,System.String)">
+      <summary>
+                    Gets a value that indicates whether two URLs are the same in their canonicalized forms.
+                </summary>
+      <returns>true if the two URLs are the same; otherwise, false.
+                </returns>
+      <param name="pURL1">
+                    The first URL to compare.
+                </param>
+      <param name="pURL2">
+                    The second URL to compare.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.CanonizeURL(System.String,Microsoft.IE.Manager.URL_CANONFLAGS)">
+      <summary>
+                    Converts a URL string into canonical form.
+                </summary>
+      <returns>
+                    The canonicalized URL.
+                </returns>
+      <param name="pURL">
+                    A null-terminated string of maximum length (<see cref="F:Microsoft.IE.Manager.INTERNET_MAX_URL_LENGTH" />) that contains a URL string. If the string does not refer to a file, it must include a valid scheme such as "http://".
+                </param>
+      <param name="flags">
+                    The flags that specify how the URL will be converted to canonical form. The following flags can be combined: 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_SIMPLIFY" />
+                    Treat "/./" and "/../" in a URL string as literal characters, not as shorthand for navigation. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_PERCENT" />
+                    Convert any occurrence of "%" to its escape sequence. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_SPACES_ONLY" />
+                    Replace only spaces with escape sequences. This flag takes precedence over <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_UNSAFE" />, but does not apply to opaque URLs. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_UNSAFE" />
+                    Replace unsafe characters with their escape sequences. Unsafe characters are characters that may be altered during transport across the Internet. They include the &lt;, &gt;, ", #, {, }, |, \, ^, [, ], and ' characters. This flag applies to all URLs, including opaque URLs. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_NO_META" />
+                    Defined to be the same as <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_SIMPLIFY" />. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_PLUGGABLE_PROTOCOL" />
+                    Combine URLs with client-defined pluggable protocols, according to the World Wide Web Consortium (W3C) specification. This flag does not apply to standard protocols such as FTP, HTTP, and Gopher. If this flag is set, there is no need to also set <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_SIMPLIFY" />. 
+                <see cref="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_UNESCAPE" />
+                    Unescape any escape sequences that the URLs contain, with two exceptions. The escape sequences for "?" and "#" are not unescaped. If one of the URL_ESCAPE flags is also set, the two URLs are first unescaped, and then combined, and then escaped.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.DecodeDomainId(System.String)">
+      <summary>
+                    Gets a byte array that contains the integer representation of the passed-in hexadecimal string.
+                </summary>
+      <returns>
+                    An array that contains the integer representation of <paramref name="hexString" />. 
+                </returns>
+      <param name="hexString">
+                    A hexadecimal string that represents a domain identity.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetClassFactory(System.String,System.String)">
+      <summary>
+                    Not implemented.
+                </summary>
+      <returns>
+                    Always null.
+                </returns>
+      <param name="assemblyName">
+                    The name of the assembly.
+                </param>
+      <param name="className">
+                    The name of the class.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetCodeBase(System.String,System.String@,System.String@)">
+      <summary>
+                    Gets the code base and the application name from the passed-in URL string.
+                </summary>
+      <returns>true if the code base was found; otherwise, false. 
+                </returns>
+      <param name="pURL">
+                    The URL for the code base.
+                </param>
+      <param name="codeBase">
+                    When this method returns, contains the path to the code base.
+                </param>
+      <param name="application">
+                    When this method returns, contains the application name.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetConfigurationFile(System.String,System.String@,System.String@)">
+      <summary>
+                    Gets the path and file name of the configuration file from the passed-in URL string.
+                </summary>
+      <returns>true if the configuration file was found; otherwise, false. 
+                </returns>
+      <param name="pURL">
+                    The URL for the configuration file.
+                </param>
+      <param name="path">
+                    When this method returns, contains the path of the configuration file.
+                </param>
+      <param name="file">
+                    When this method returns, contains the name of the configuration file.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetSecuredClassFactory(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+      <summary>
+                    Creates a class factory that provides security information about the assembly.  
+                </summary>
+      <returns>
+                    An object that represents the secure class factory.
+                </returns>
+      <param name="flags">
+                    One of the following CORIESECURITY values: 
+                CORIESECURITY_ZONE: 0x01
+                CORIESECURITY_SITE: 0x02
+                </param>
+      <param name="zone">
+                    One of the following URLZONE values:
+                URLZONE_LOCAL_MACHINE: 0x00 
+                URLZONE_INTRANET: 0x01
+                URLZONE_TRUSTED: 0x02 
+                URLZONE_INTERNET: 0x03 
+                URLZONE_UNTRUSTED: 0x04
+                </param>
+      <param name="site">
+                    The site address.
+                </param>
+      <param name="uniqueIdString">
+                    A unique ID for the site.
+                </param>
+      <param name="fileHashString">
+                    The hexadecimal encoded hash value of the assembly that is being loaded.
+                </param>
+      <param name="assemblyName">
+                    The name of the assembly.
+                </param>
+      <param name="typeName">
+                    The name of the type. 
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetSiteName(System.String)">
+      <summary>
+                    Gets the site name for the specified URL.
+                </summary>
+      <returns>
+                    The site name for the specified URL.
+                </returns>
+      <param name="pURL">
+                    The target URL.
+                </param>
+    </member>
+    <member name="F:Microsoft.IE.Manager.INTERNET_MAX_PATH_LENGTH">
+      <summary>
+                    Gets the maximum length of a string that represents an Internet path.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.INTERNET_MAX_SCHEME_LENGTH">
+      <summary>
+                    Gets the maximum length of a string that represents an Internet scheme.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.INTERNET_MAX_URL_LENGTH">
+      <summary>
+                    Gets the maximum length of a string that represents a URL.
+                </summary>
+    </member>
+    <member name="M:Microsoft.IE.Manager.IsValidURL(System.String)">
+      <summary>
+                    Determines whether the specified URL is valid.
+                </summary>
+      <returns>true if the URL is valid; otherwise, false. 
+                </returns>
+      <param name="pURL">
+                    The URL to be checked.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.MakeFullLink(System.String,System.String,System.String)">
+      <summary>
+                    Returns a full URL for the passed-in link, code base, and application.
+                </summary>
+      <returns>
+                    A full link to the specified application.
+                </returns>
+      <param name="link">
+                    The link portion of the address, which can be relative.
+                </param>
+      <param name="CodeBase">
+                    The code base portion of the address.
+                </param>
+      <param name="Application">
+                    The application portion of the address.
+                </param>
+    </member>
+    <member name="T:Microsoft.IE.Manager.URL_CANONFLAGS">
+      <summary>
+                    Specifies how a URL is converted to canonical form. 
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_UNESCAPE">
+      <summary>
+                    Unescape any escape sequences that the URLs contain, with two exceptions. The escape sequences for ? and # characters are not unescaped. If one of the URL_ESCAPE flags is also set, the two URLs are unescaped, combined, and then escaped.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_UNSAFE">
+      <summary>
+                    Replace unsafe characters with their escape sequences. Unsafe characters are characters that may be altered during transport across the Internet, and include the &lt;, &gt;, ", #, {, }, |, \, ^, [, ], and ' characters. This flag applies to all URLs, including opaque URLs.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_PLUGGABLE_PROTOCOL">
+      <summary>
+                    Combine URLs with client-defined pluggable protocols, according to the World Wide Web Consortium (W3C) specification. This flag does not apply to standard protocols such as ftp, http, gopher, and so on. 
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_WININET_COMPATIBILITY">
+      <summary>
+                    Merge all the parameters to create a full URL
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_ESCAPE_EXTRA_INFO">
+      <summary>
+                    Used only in conjunction with URL_ESCAPE_SPACES_ONLY to prevent the conversion of characters in the query (the portion of the URL following the first # or ? character encountered in the string). This flag should not be used alone or combined with URL_ESCAPE_SEGMENT_ONLY.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_UNESCAPE_EXTRA_INFO">
+      <summary>
+                    Used only in conjunction with URL_ESCAPE_SPACES_ONLY to prevent the conversion of characters in the query (the portion of the URL following the first # or ? character encountered in the string). This flag should not be used alone or combined with URL_ESCAPE_SEGMENT_ONLY.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_BROWSER_MODE">
+      <summary>
+                    Defined to be the same as URL_DONT_ESCAPE_EXTRA_INFO.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_SPACES_ONLY">
+      <summary>
+                    Replace only spaces with escape sequences. This flag takes precedence over URL_ESCAPE_UNSAFE, but does not apply to opaque URLs.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_DONT_SIMPLIFY">
+      <summary>
+                    Treat /./ and /../ in a URL string as literal characters, and not as shorthand for navigation.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_NO_META">
+      <summary>
+                    Defined to be the same as URL_DONT_SIMPLIFY.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_UNESCAPE_INPLACE">
+      <summary>
+                    Convert escape sequences back into ordinary characters and overwrite the original string.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_CONVERT_IF_DOSPATH">
+      <summary>
+                    Convert to a URL if in a dospath format.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_UNESCAPE_HIGH_ANSI_ONLY">
+      <summary>
+                    Unescape only high ANSI escape characters.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_INTERNAL_PATH">
+      <summary>
+                    Escape # characters found in paths.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_FILE_USE_PATHURL">
+      <summary>
+                    Use DOS path compatibility mode to create "file" Uniform Resource Identifiers (URIs).
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_PERCENT">
+      <summary>
+                    Convert any occurrence of "%" to its escape sequence.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_CANONFLAGS.URL_ESCAPE_SEGMENT_ONLY">
+      <summary>
+                    Indication that the URL contains only the section following the server component but preceding the query. All unsafe characters in the string are converted. If a full URL is provided when this flag is set, all unsafe characters in the entire string are converted, including # and ? characters. 
+                </summary>
+    </member>
+    <member name="T:Microsoft.IE.Manager.URL_IS">
+      <summary>
+                    Identifies the type of URL that the unmanaged UrlIs function will test for.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_URL">
+      <summary>
+                    The URL is valid.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_OPAQUE">
+      <summary>
+                    The URL is opaque, which means that it has a scheme that is not followed by two forward slashes (//).
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_NOHISTORY">
+      <summary>
+                    The URL is a no-history URL, which is a URL that browsers typically do not include in their navigation history.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_FILEURL">
+      <summary>
+                    The URL is a file URL, which takes the form file://host/path.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_APPLIABLE">
+      <summary>
+                    The UrlIs function will attempt to determine a valid scheme for the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_DIRECTORY">
+      <summary>
+                    The URL string ends with a directory name.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_IS.URLIS_HASQUERY">
+      <summary>
+                    The URL has an appended query string.
+                </summary>
+    </member>
+    <member name="T:Microsoft.IE.Manager.URL_PART">
+      <summary>
+                    Identifies the parts of a URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.NONE">
+      <summary>
+                    No part of the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.SCHEME">
+      <summary>
+                    The URL scheme.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.HOSTNAME">
+      <summary>
+                    The host name part of the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.USERNAME">
+      <summary>
+                    The user name part of the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.PASSWORD">
+      <summary>
+                    The password part of the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.PORT">
+      <summary>
+                    The port number part of the URL.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.Manager.URL_PART.QUERY">
+      <summary>
+                    The query string part of the URL.
+                </summary>
+    </member>
+    <member name="T:Microsoft.IE.SecureFactory">
+      <summary>
+                    Provides methods for creating secure class factories. 
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.CORIESECURITY_SITE">
+      <summary>
+                    Specifies the value 0x02.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.CORIESECURITY_ZONE">
+      <summary>
+                    Specifies the value 0x01.
+                </summary>
+    </member>
+    <member name="M:Microsoft.IE.SecureFactory.CreateInstanceWithSecurity(System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+      <summary>
+                    Creates a new instance of a COM type that represents a secure class factory. 
+                </summary>
+      <returns>
+                    An object that is a wrapper for the new instance. The return value must be unwrapped to access the real object.
+                </returns>
+      <param name="dwFlag">
+                    One of the following CORIESECURITY values: 
+                CORIESECURITY_ZONE: 0x01
+                CORIESECURITY_SITE: 0x02
+                </param>
+      <param name="dwZone">
+                    One of the following URLZONE values:
+                URLZONE_LOCAL_MACHINE: 0x00 
+                URLZONE_INTRANET: 0x01
+                URLZONE_TRUSTED: 0x02 
+                URLZONE_INTERNET: 0x03 
+                URLZONE_UNTRUSTED: 0x04
+                </param>
+      <param name="pURL">
+                    The URL for the site that contains the application for which the secure class factory will be created.
+                </param>
+      <param name="uniqueIdString">
+                    The unique identity for the site.
+                </param>
+      <param name="link">
+                    The link portion of the URL, which can be relative.
+                </param>
+      <param name="licenses">
+                    The location of the license files to associate with the domain.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.SecureFactory.RemoteCreateInstance(System.Guid,System.Object@)">
+      <summary>
+                    Not implemented.
+                </summary>
+      <param name="riid">
+                    Not used.
+                </param>
+      <param name="ppvObject">
+                    Always null when this method returns.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.SecureFactory.RemoteLockServer(System.Int32)">
+      <summary>
+                    Not implemented.
+                </summary>
+      <param name="fLock">
+                    Not used.
+                </param>
+    </member>
+    <member name="T:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY">
+      <summary>
+                    Contains information about an entry in the Internet cache.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.NORMAL_CACHE_ENTRY">
+      <summary>
+                    Normal cache entry; can be deleted to recover space for new entries.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.COOKIE_CACHE_ENTRY">
+      <summary>
+                    Cookie cache entry.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.URLHISTORY_CACHE_ENTRY">
+      <summary>
+                    Visited link cache entry.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.TRACK_OFFLINE_CACHE_ENTRY">
+      <summary>
+                    Not currently implemented.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.TRACK_ONLINE_CACHE_ENTRY">
+      <summary>
+                    Not currently implemented.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.STICKY_CACHE_ENTRY">
+      <summary>
+                    Sticky cache entry that is exempt from scavenging. The default value set by CommitUrlCacheEntry is one day.
+                </summary>
+    </member>
+    <member name="F:Microsoft.IE.SecureFactory.WININET_CACHE_ENTRY.SPARSE_CACHE_ENTRY">
+      <summary>
+                    Partial response cache entry.
+                </summary>
+    </member>
+    <member name="M:Microsoft.IE.SecureFactory.CreateInstanceWithSecurity2(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String)">
+      <summary>
+                    Creates a new instance of a COM type that represents a secure class factory by using information from the deployment manifest. 
+                </summary>
+      <returns>
+                    An object that is a wrapper for the new instance. The return value must be unwrapped to access the real object. 
+                </returns>
+      <param name="dwFlags">
+                    One of the following CORIESECURITY values: 
+                CORIESECURITY_ZONE: 0x01
+                CORIESECURITY_SITE: 0x02
+                </param>
+      <param name="dwZone">
+                    One of the following URLZONE values:
+                URLZONE_LOCAL_MACHINE: 0x00 
+                URLZONE_INTRANET: 0x01
+                URLZONE_TRUSTED: 0x02 
+                URLZONE_INTERNET: 0x03 
+                URLZONE_UNTRUSTED: 0x04
+                </param>
+      <param name="wszSite">
+                    The URL for the site that contains the application for which the secure class factory will be created.
+                </param>
+      <param name="wszId">
+                    The unique identity for the site.
+                </param>
+      <param name="wszConfig">
+                    The link portion of the URL, which can be relative.
+                </param>
+      <param name="wszLicenses">
+                    The location of the license files to associate with the domain.
+                </param>
+      <param name="wszDeploymentManifest">
+                    The location of the deployment manifest.
+                </param>
+    </member>
+    <member name="M:Microsoft.IE.Manager.GetSecuredClassFactory(System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+      <summary>
+                    Creates a class factory that provides security information about the assembly and the name of the type.  
+                </summary>
+      <returns>
+                    An object that represents the secure class factory.
+                </returns>
+      <param name="flags">
+                    One of the following CORIESECURITY values: 
+                CORIESECURITY_ZONE: 0x01
+                CORIESECURITY_SITE: 0x02
+                </param>
+      <param name="zone">
+                    One of the following URLZONE values:
+                URLZONE_LOCAL_MACHINE: 0x00 
+                URLZONE_INTRANET: 0x01
+                URLZONE_TRUSTED: 0x02 
+                URLZONE_INTERNET: 0x03 
+                URLZONE_UNTRUSTED: 0x04
+                </param>
+      <param name="site">
+                    The site address.
+                </param>
+      <param name="uniqueIdString">
+                    A unique ID for the site.
+                </param>
+      <param name="assemblyName"></param>
+      <param name="typeName">
+                    The name of the type. 
+                </param>
+    </member>
+  </members>
+</doc>

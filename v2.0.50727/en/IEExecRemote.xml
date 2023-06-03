@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>IEExecRemote</name>
+  </assembly>
+  <members>
+    <member name="T:IEHost.Execute.IEExecuteRemote">
+      <summary>
+                    Runs a managed application over the Internet.
+                </summary>
+    </member>
+    <member name="M:IEHost.Execute.IEExecuteRemote.#ctor">
+      <summary>
+                    Initializes a new instance of the <see cref="T:IEHost.Execute.IEExecuteRemote" /> class. 
+                </summary>
+    </member>
+    <member name="P:IEHost.Execute.IEExecuteRemote.Exception">
+      <summary>
+                    Gets an exception if one was thrown.
+                </summary>
+      <returns>
+                    The serialized exception, or null if an exception was not thrown.
+                </returns>
+    </member>
+    <member name="M:IEHost.Execute.IEExecuteRemote.ExecuteAsAssembly(System.String,System.Security.Policy.Evidence,System.Byte[],System.Configuration.Assemblies.AssemblyHashAlgorithm)">
+      <summary>
+                    Loads an assembly and calls the entry point, given its file name or path, security evidence, hash value, and hash algorithm.
+                </summary>
+      <returns>
+                    The loaded assembly.
+                </returns>
+      <param name="file">
+                    The name or path of the file that contains the manifest of the assembly.
+                </param>
+      <param name="evidence">
+                    Evidence for loading the assembly. 
+                </param>
+      <param name="hash">
+                    The value of the computed hash code.
+                </param>
+      <param name="id">
+                    The hash algorithm that was used to hash files and to generate the strong name.
+                </param>
+    </member>
+    <member name="M:IEHost.Execute.IEExecuteRemote.ExecuteAsDll(System.String,System.Security.Policy.Evidence,System.Object)">
+      <summary>
+                    This method is not implemented in the current version of the .NET Framework.
+                </summary>
+      <returns>
+                    Always E_NOTIMPL.
+                </returns>
+      <param name="file">
+                    Not used.
+                </param>
+      <param name="evidence">
+                    Not used.
+                </param>
+      <param name="pars">
+                    Not used.
+                </param>
+    </member>
+    <member name="M:IEHost.Execute.IEExecuteRemote.InitializeLifetimeService">
+      <summary>
+                    Gives the <see cref="T:IEHost.Execute.IEExecuteRemote" /> object an infinite lifetime by preventing a lease from being created.
+                </summary>
+      <returns>
+                    Always null.
+                </returns>
+    </member>
+    <member name="M:IEHost.Execute.IEExecuteRemote.ExecuteAsAssembly(System.String,System.Security.Policy.Evidence)">
+      <summary>
+                    Loads an assembly and calls the entry point, given its file name or path and security evidence.
+                </summary>
+      <returns>
+                    The loaded assembly.
+                </returns>
+      <param name="file">
+                    The name or path of the file that contains the manifest of the assembly.
+                </param>
+      <param name="evidence">
+                    Evidence for loading the assembly. 
+                </param>
+    </member>
+  </members>
+</doc>

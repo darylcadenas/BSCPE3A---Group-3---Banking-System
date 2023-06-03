@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.Vsa.Vb.CodeDOMProcessor</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.Vsa.Vb.CodeDOM._CodeDOMProcessor"></member>
+    <member name="M:Microsoft.Vsa.Vb.CodeDOM._CodeDOMProcessor.CodeDOMFromXML(System.String)">
+      <param name="xmlStream">
+                     
+                </param>
+    </member>
+    <member name="T:Microsoft.Vsa.Vb.CodeDOM._Location"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM._Location.BeginningColumn"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM._Location.BeginningLine"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM._Location.EndColumn"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM._Location.EndLine"></member>
+    <member name="T:Microsoft.Vsa.Vb.CodeDOM.CodeDOMProcessor"></member>
+    <member name="M:Microsoft.Vsa.Vb.CodeDOM.CodeDOMProcessor.#ctor"></member>
+    <member name="M:Microsoft.Vsa.Vb.CodeDOM.CodeDOMProcessor.CodeDOMFromXML(System.String)">
+      <param name="xmlStream">
+                     
+                </param>
+    </member>
+    <member name="T:Microsoft.Vsa.Vb.CodeDOM.Location"></member>
+    <member name="M:Microsoft.Vsa.Vb.CodeDOM.Location.#ctor"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM.Location.BeginningColumn"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM.Location.BeginningLine"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM.Location.EndColumn"></member>
+    <member name="P:Microsoft.Vsa.Vb.CodeDOM.Location.EndLine"></member>
+  </members>
+</doc>
