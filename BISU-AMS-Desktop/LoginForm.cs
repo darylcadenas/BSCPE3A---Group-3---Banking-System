@@ -98,10 +98,10 @@ namespace BISU_AMS_Desktop
 
         DataTable userinfo;
         private void bwLogin_DoWork(object sender, DoWorkEventArgs e)
-        {
-            userinfo = Users.GetLogin(txtUserName.Text, txtPassword.Text);
-            bwLogin.CancelAsync();
-        }
+            {
+                userinfo = Users.GetLogin(txtUserName.Text, txtPassword.Text);
+                bwLogin.CancelAsync();
+            }
 
         private void bwLogin_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -112,6 +112,10 @@ namespace BISU_AMS_Desktop
                 MainForm mf = new MainForm();
                 this.Hide();
                 mf.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Login.\nCheck Username and Password.");
             }
         }
     }
