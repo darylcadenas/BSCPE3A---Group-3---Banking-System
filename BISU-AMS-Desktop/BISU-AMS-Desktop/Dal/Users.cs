@@ -100,7 +100,7 @@ namespace BISU_AMS_Desktop.Dal
                     SaveUserSucessful = true;
                 }
             }
-            catch (Exception ex) { SaveUserSucessful = false; SaveUserErrorMessage = "ERROR!\n" + ex.Message + "\nFunction : Add/Edit Department"; }
+            catch (Exception ex) { SaveUserSucessful = false; SaveUserErrorMessage = "ERROR!\n" + ex.Message + "\nFunction : Add/Edit Users"; }
         }
     }
 }
