@@ -7,6 +7,8 @@ using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using BISU_AMS_Desktop.Dal;
+using System.IO;
 
 namespace BISU_AMS_Desktop
 {
@@ -53,5 +55,31 @@ namespace BISU_AMS_Desktop
         }
 
         #endregion
+        private void GetUserList()
+        {
+            if (!bwGetUser.IsBusy)
+            {
+                ShowLoading("Loading...");
+                bwGetUser.RunWorkerAsync();
+            }
+        }
+
+        DataTable dtUser = new DataTable();
+        private void bwGetUser_DoWork(object sender, DoWorkEventArgs e)
+        {
+            dtUser = Users.GetUser();
+            bwGetUser.CancelAsync();
+        }
+
+        private void bwGetUser_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            HideLoading();
+            if (Users.GetUserSucessful)
+                dtUsers.DataSource = dtUser;
+            else
+                MessageBox.Show(Users.GetUserErrorMessage);
+        }
+
+
     }
 }
