@@ -14,6 +14,7 @@ namespace BISU_AMS_Desktop.Dal
             return PublicVariables.ServerConnectionString;
         }
 
+        //logging in
         public static bool GetLoginSucessful = false;
         public static string GetLoginErrorMessage;
         public static DataTable GetLogin(string username, string password)
@@ -46,6 +47,7 @@ namespace BISU_AMS_Desktop.Dal
             }
         }
 
+        //getting user list
         public static bool GetUserSucessful = false;
         public static string GetUserErrorMessage;
         public static DataTable GetUser()
@@ -56,7 +58,7 @@ namespace BISU_AMS_Desktop.Dal
                 using (MySqlConnection con = new MySqlConnection(ConnectionString()))
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `users`", con);
+                    MySqlCommand cmd = new MySqlCommand("SELECT id, username, fullname, users.privileges FROM users;", con);
                     //cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                     adp.Fill(dt);
@@ -81,7 +83,7 @@ namespace BISU_AMS_Desktop.Dal
         //insert/update
         public static bool SaveUserSucessful = false;
         public static string SaveUserErrorMessage;
-        public static void SaveUser(int UserID, string username, string password, string fullName, string priviledge, string mode)
+        public static void SaveUser(string username, string password, string fullName, string privileges, string mode)
         {
             try
             {
@@ -90,9 +92,9 @@ namespace BISU_AMS_Desktop.Dal
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand();
                     if (mode == "Add")
-                        cmd = new MySqlCommand("INSERT INTO `user`(username, password, fullname,) VALUES('" + username + "', PASSWORD('" + password + "'),'" + fullName + "';", con);
+                        cmd = new MySqlCommand("INSERT INTO `users`(username, password, fullname, users.privileges) VALUES('" + username + "', PASSWORD('" + password + "'),'" + fullName + "','" + privileges + "');", con);
                     else
-                        cmd = new MySqlCommand("UPDATE `user` SET username = '" + username + "', password = PASSWORD('" + password + "', fullname = '" + fullName + "';", con);
+                        cmd = new MySqlCommand("UPDATE `users` SET password = PASSWORD('" + password + "'), users.privileges = '" + privileges + "' WHERE username = '" + username + "' AND fullname = '" + fullName + "';", con);
                     //cmd.CommandType = CommandType.StoredProcedure;
                     //cmd.Parameters.Add(new MySqlParameter("_latest_status_id", _latest_status_id));
                     cmd.ExecuteNonQuery();
@@ -101,6 +103,28 @@ namespace BISU_AMS_Desktop.Dal
                 }
             }
             catch (Exception ex) { SaveUserSucessful = false; SaveUserErrorMessage = "ERROR!\n" + ex.Message + "\nFunction : Add/Edit Users"; }
+        }
+
+        //delete user
+        public static bool DeleteUserSucessful = false;
+        public static string DeleteUserErrorMessage;
+        public static void DeleteUser(string username, string password, string fullname, string privileges)
+        {
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(ConnectionString()))
+                {
+                    con.Open();
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd = new MySqlCommand("DELETE FROM `users` WHERE username = '" + username + "' AND password = PASSWORD('" + password + "') AND fullname = '" + fullname + "';", con);
+                    //cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.Parameters.Add(new MySqlParameter("_latest_status_id", _latest_status_id));
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    DeleteUserSucessful = true;
+                }
+            }
+            catch (Exception ex) { DeleteUserSucessful = false; DeleteUserErrorMessage = "ERROR!\n" + ex.Message + "\nFunction : Delete User"; }
         }
     }
 }

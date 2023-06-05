@@ -50,6 +50,8 @@
             this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.bwUserSave = new System.ComponentModel.BackgroundWorker();
+            this.bwUserDelete = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dtUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -66,10 +68,10 @@
             // 
             // dtUsers
             // 
-            this.dtUsers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtUsers.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
             this.dtUsers.Location = new System.Drawing.Point(8, 38);
             this.dtUsers.MainView = this.gvUsers;
-            this.dtUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtUsers.Margin = new System.Windows.Forms.Padding(2);
             this.dtUsers.Name = "dtUsers";
             this.dtUsers.Size = new System.Drawing.Size(442, 382);
             this.dtUsers.TabIndex = 5;
@@ -89,6 +91,7 @@
             this.gvUsers.OptionsFind.AlwaysVisible = true;
             this.gvUsers.OptionsView.ShowGroupPanel = false;
             this.gvUsers.OptionsView.ShowIndicator = false;
+            this.gvUsers.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvUsers_FocusedRowChanged);
             // 
             // ID
             // 
@@ -97,14 +100,16 @@
             this.ID.Name = "ID";
             this.ID.Visible = true;
             this.ID.VisibleIndex = 0;
+            this.ID.Width = 72;
             // 
             // username
             // 
             this.username.Caption = "username";
-            this.username.FieldName = "student_id";
+            this.username.FieldName = "username";
             this.username.Name = "username";
             this.username.Visible = true;
             this.username.VisibleIndex = 1;
+            this.username.Width = 92;
             // 
             // fullname
             // 
@@ -113,6 +118,7 @@
             this.fullname.Name = "fullname";
             this.fullname.Visible = true;
             this.fullname.VisibleIndex = 2;
+            this.fullname.Width = 92;
             // 
             // privileges
             // 
@@ -121,6 +127,7 @@
             this.privileges.Name = "privileges";
             this.privileges.Visible = true;
             this.privileges.VisibleIndex = 3;
+            this.privileges.Width = 109;
             // 
             // btnSave
             // 
@@ -128,17 +135,18 @@
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(543, 258);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 23);
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Location = new System.Drawing.Point(460, 197);
-            this.labelControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(80, 17);
             this.labelControl3.TabIndex = 18;
@@ -147,7 +155,7 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(460, 118);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
@@ -157,7 +165,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(460, 59);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
@@ -168,7 +176,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Location = new System.Drawing.Point(460, 37);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(69, 17);
             this.labelControl1.TabIndex = 14;
@@ -178,7 +186,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Location = new System.Drawing.Point(460, 97);
-            this.labelControl2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(66, 17);
             this.labelControl2.TabIndex = 20;
@@ -187,7 +195,7 @@
             // cmbPrivilege
             // 
             this.cmbPrivilege.Location = new System.Drawing.Point(460, 219);
-            this.cmbPrivilege.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPrivilege.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPrivilege.Name = "cmbPrivilege";
             this.cmbPrivilege.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPrivilege.Properties.Appearance.Options.UseFont = true;
@@ -203,7 +211,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Location = new System.Drawing.Point(460, 144);
-            this.labelControl4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(66, 17);
             this.labelControl4.TabIndex = 22;
@@ -212,7 +220,7 @@
             // txtFullName
             // 
             this.txtFullName.Location = new System.Drawing.Point(460, 165);
-            this.txtFullName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFullName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFullName.Properties.Appearance.Options.UseFont = true;
@@ -225,11 +233,12 @@
             this.btnRefresh.Appearance.Options.UseFont = true;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.Location = new System.Drawing.Point(349, 11);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(101, 23);
             this.btnRefresh.TabIndex = 26;
             this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnDelete
             // 
@@ -237,11 +246,12 @@
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.Location = new System.Drawing.Point(235, 11);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 23);
             this.btnDelete.TabIndex = 25;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -249,11 +259,12 @@
             this.btnEdit.Appearance.Options.UseFont = true;
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.Location = new System.Drawing.Point(121, 11);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(101, 23);
             this.btnEdit.TabIndex = 24;
             this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
@@ -261,11 +272,24 @@
             this.btnAdd.Appearance.Options.UseFont = true;
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.Location = new System.Drawing.Point(7, 11);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(101, 23);
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // bwUserSave
+            // 
+            this.bwUserSave.WorkerSupportsCancellation = true;
+            this.bwUserSave.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUserSave_DoWork);
+            this.bwUserSave.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUserSave_RunWorkerCompleted);
+            // 
+            // bwUserDelete
+            // 
+            this.bwUserDelete.WorkerSupportsCancellation = true;
+            this.bwUserDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUserDelete_DoWork);
+            this.bwUserDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUserDelete_RunWorkerCompleted);
             // 
             // UserManagementForm
             // 
@@ -286,10 +310,11 @@
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.dtUsers);
             this.Controls.Add(this.cmbPrivilege);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UserManagementForm";
+            this.Shown += new System.EventHandler(this.UserManagementForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
@@ -324,5 +349,7 @@
         private DevExpress.XtraEditors.SimpleButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private System.ComponentModel.BackgroundWorker bwUserSave;
+        private System.ComponentModel.BackgroundWorker bwUserDelete;
     }
 }
