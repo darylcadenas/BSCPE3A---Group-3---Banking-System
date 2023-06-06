@@ -14,7 +14,7 @@ namespace BISU_AMS_Desktop.Dal
             return PublicVariables.ServerConnectionString;
         }
 
-        //logging in
+        //LOGGING IN
         public static bool GetLoginSucessful = false;
         public static string GetLoginErrorMessage;
         public static DataTable GetLogin(string username, string password)
@@ -47,7 +47,7 @@ namespace BISU_AMS_Desktop.Dal
             }
         }
 
-        //getting user list
+        //GETTING USER LIST
         public static bool GetUserSucessful = false;
         public static string GetUserErrorMessage;
         public static DataTable GetUser()
@@ -80,7 +80,7 @@ namespace BISU_AMS_Desktop.Dal
             }
         }
 
-        //insert/update
+        //SAVING USER
         public static bool SaveUserSucessful = false;
         public static string SaveUserErrorMessage;
         public static void SaveUser(string username, string password, string fullName, string privileges, string mode)
@@ -105,10 +105,10 @@ namespace BISU_AMS_Desktop.Dal
             catch (Exception ex) { SaveUserSucessful = false; SaveUserErrorMessage = "ERROR!\n" + ex.Message + "\nFunction : Add/Edit Users"; }
         }
 
-        //delete user
+        //DELETING USER
         public static bool DeleteUserSucessful = false;
         public static string DeleteUserErrorMessage;
-        public static void DeleteUser(string username, string password, string fullname, string privileges)
+        public static void DeleteUser(string username, string fullname)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace BISU_AMS_Desktop.Dal
                 {
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand();
-                    cmd = new MySqlCommand("DELETE FROM `users` WHERE username = '" + username + "' AND password = PASSWORD('" + password + "') AND fullname = '" + fullname + "';", con);
+                    cmd = new MySqlCommand("DELETE FROM `users` WHERE username = '" + username + "' AND fullname = '" + fullname + "';", con);
                     //cmd.CommandType = CommandType.StoredProcedure;
                     //cmd.Parameters.Add(new MySqlParameter("_latest_status_id", _latest_status_id));
                     cmd.ExecuteNonQuery();

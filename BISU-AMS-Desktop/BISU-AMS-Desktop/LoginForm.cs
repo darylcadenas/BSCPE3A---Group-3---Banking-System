@@ -54,25 +54,30 @@ namespace BISU_AMS_Desktop
         }
 
         #endregion
-
+        // CLICK SA LOGIN BUTTON
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //KUNG WALAY SUD ANG USERNAME UG PASSWORD
             if (string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtUserName.Text))
             {
                 MessageBox.Show("Please Input Username and Password.");
                 if (string.IsNullOrEmpty(txtUserName.Text))
                 {
+                    //FOCUS SA USERNAME KUNG WALAY SUD SI USERNAME
                     txtUserName.Focus();
                     txtUserName.Select();
                 }
                 else if (string.IsNullOrEmpty(txtPassword.Text))
                 {
+                    //FOCUS SA PASSWORD KUNG WALAY SUD SI PASSWORD
                     txtPassword.Focus();
                     txtPassword.Select();
                 }
             }
+            // KUNG NAAY SUD SI USERNAME UG PASSWORD
             else
             {
+                //VERIFY
                 verifyLogin();
             }
         }
@@ -87,32 +92,40 @@ namespace BISU_AMS_Desktop
             //string IconFilePath = LocalDirectory + "\\images\\icon.ico";
             //this.Icon = Properties.Resources.BisuIcon;
         }
+
+        //VERIFY
         private void verifyLogin()
         {
             if (!bwLogin.IsBusy)
             {
                 ShowLoading("Logging in...");
-                bwLogin.RunWorkerAsync();
+                bwLogin.RunWorkerAsync(); // STARTING BACKGROUND WORK
             }
         }
 
+        //BACKGROUND WORK
         DataTable userinfo;
         private void bwLogin_DoWork(object sender, DoWorkEventArgs e)
             {
+                //GETTING INFO TO USERS.CS NGA FILE
                 userinfo = Users.GetLogin(txtUserName.Text, txtPassword.Text);
                 bwLogin.CancelAsync();
             }
 
+        //BACKGROUND WORK COMPLETE
         private void bwLogin_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HideLoading();
             if (Users.GetLoginSucessful)
             {
+                //SHOW MESSEGE
                 MessageBox.Show("Login successful!");
                 MainForm mf = new MainForm();
                 this.Hide();
+                //NEW WINDOW POINT TO MAINFORM
                 mf.Show();
             }
+            //ERROR MESSEGE IF WALA ANG CREDENTIALS SA TABLE
             else
             {
                 MessageBox.Show("Invalid Login.\nCheck Username and Password.");

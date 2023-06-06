@@ -52,6 +52,7 @@
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.bwUserSave = new System.ComponentModel.BackgroundWorker();
             this.bwUserDelete = new System.ComponentModel.BackgroundWorker();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dtUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -134,10 +135,10 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(543, 258);
+            this.btnSave.Location = new System.Drawing.Point(554, 258);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(94, 23);
+            this.btnSave.Size = new System.Drawing.Size(83, 23);
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -291,11 +292,24 @@
             this.bwUserDelete.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwUserDelete_DoWork);
             this.bwUserDelete.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwUserDelete_RunWorkerCompleted);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(460, 258);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 23);
+            this.btnCancel.TabIndex = 27;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // UserManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(655, 439);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -351,5 +365,6 @@
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private System.ComponentModel.BackgroundWorker bwUserSave;
         private System.ComponentModel.BackgroundWorker bwUserDelete;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
     }
 }

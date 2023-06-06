@@ -54,37 +54,52 @@ namespace BISU_AMS_Desktop
         }
 
         #endregion
+        // GETTING USER LIST
         private void GetUserList()
         {
             if (!bwGetUser.IsBusy)
             {
                 ShowLoading("Loading...");
-                bwGetUser.RunWorkerAsync();
+                bwGetUser.RunWorkerAsync(); //START BACKGROUND WORK
             }
         }
 
+        //BACKGROUND WORK FOR GET USER
         DataTable dtUser = new DataTable();
         private void bwGetUser_DoWork(object sender, DoWorkEventArgs e)
         {
+            //GETTING INFO TO USERS.CS NGA FILE
             dtUser = Users.GetUser();
             bwGetUser.CancelAsync();
         }
 
+        //BACKGROUND WORK COMPLETE
         private void bwGetUser_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HideLoading();
             if (Users.GetUserSucessful)
-                dtUsers.DataSource = dtUser;
+            {
+                dtUsers.DataSource = dtUser; //DISPLAY DATA
+                txtUserName.Enabled = false;
+                txtPassword.Enabled = false;
+                txtFullName.Enabled = false;
+                cmbPrivilege.Enabled = false;
+                btnSave.Enabled = false;
+                btnCancel.Enabled = false;
+                CRUDEControl(true);
+            }
             else
                 MessageBox.Show(Users.GetUserErrorMessage);
         }
 
+        //ICON PROPERTIES RA
         private void UserManagementForm_Shown(object sender, EventArgs e)
         {
             this.Icon = Properties.Resources.BisuIcon;
             GetUserList();
         }
 
+        //TEXT FIELD CONTROLS
         private void CRUDEControl(bool operation)
         {
             btnAdd.Enabled = operation;
@@ -93,8 +108,10 @@ namespace BISU_AMS_Desktop
             btnRefresh.Enabled = operation;
         }
 
+        //FUNCTION KUNG I CLICK ANG ADD BUTTON
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            //PROCEDD TO ADD DETAILS
             CRUDEControl(false);
             btnSave.Text = "Add";
             txtUserName.Enabled = true;
@@ -103,54 +120,67 @@ namespace BISU_AMS_Desktop
             txtUserName.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtFullName.Text = string.Empty;
-            //cmbPrivilege.Enabled = true;
+            cmbPrivilege.Enabled = true;
             //cmbPrivilege.Text = string.Empty;
             btnSave.Enabled = true;
+            btnCancel.Enabled = true;
         }
-        
+
+        //FUNCTION KUNG I CLICK ANG EDIT BUTTON
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (UserSelection())
+            if (UserSelection()) //KUNG NAAY NA CLICK NGA DATA SA TABLE
             {
+                //PROCEDD TO EDIT DETAILS
                 CRUDEControl(false);
                 btnSave.Text = "Save";
                 txtUserName.Enabled = false;
                 txtPassword.Enabled = true;
                 txtFullName.Enabled = false;
-                //cmbPrivilege.Enabled = true;
+                cmbPrivilege.Enabled = true;
                 //cmbPrivilege.Text = string.Empty;
                 btnSave.Enabled = true;
+                btnCancel.Enabled = true;
             }
             else
                 MessageBox.Show("No row selected!");
         }
 
+        //FUNCTION KUNG I CLICK ANG DELETE BUTTON
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (UserSelection())
             {
+                // DELETE FUNCTION
                 DeleteUser();
             }
         }
 
+        //FUNCTION KUNG I CLICK ANG REFRESH BUTTON
         private void btnRefresh_Click(object sender, EventArgs e)
         {
+            // GETTING USER LIST
             GetUserList();
         }
 
+        //FUNCTION KUNG I CLICK ANG SAVE BUTTON
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // KUNG WALAY SUD ANG MGA TEXT FIELDS, MAG ERROR
             if (string.IsNullOrEmpty(txtUserName.Text) || string.IsNullOrEmpty(txtPassword.Text) || string.IsNullOrEmpty(txtFullName.Text))
             {
                 MessageBox.Show("Enter Required Fields.");
             }
+            // ELSE PROCEDD TO SAVE USER
             else SaveUser();
         }
 
+        // DETECTION SA CLICKS SA DATA SA TABLE
         private void gvUsers_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             UserSelection();
         }
+
         string userID;
         private bool UserSelection()
         {
@@ -166,50 +196,54 @@ namespace BISU_AMS_Desktop
             return false;
         }
 
+        // SAVING USER
         private void SaveUser()
         {
             if (!bwUserSave.IsBusy)
             {
                 ShowLoading("Saving...");
-                bwUserSave.RunWorkerAsync();
+                bwUserSave.RunWorkerAsync(); // STARTING BACKGROUND WORK
             }
         }
 
+        // BACKGROUND WORK
         private void bwUserSave_DoWork(object sender, DoWorkEventArgs e)
         {
+            // GETTING STATEMENTS SA USER.CS NGA FILE
             Users.SaveUser(txtUserName.Text, txtPassword.Text, txtFullName.Text, cmbPrivilege.Text, btnSave.Text);
             bwUserSave.CancelAsync();
         }
 
+        // BACKGROUND WORK
         private void bwUserSave_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             HideLoading();
             if (Users.SaveUserSucessful)
             {
+                //SHOW MESSEGE
                 MessageBox.Show("User Saved!");
                 GetUserList();
-                txtUserName.Enabled = false;
-                txtPassword.Enabled = false;
-                txtFullName.Enabled = false;
-                btnSave.Enabled = false;
-                CRUDEControl(true);
+                //REPEATING CYCLE
             }
             else
                 MessageBox.Show(Users.SaveUserErrorMessage);
         }
 
+        //DELETING USER
         private void DeleteUser()
         {
             if (!bwUserDelete.IsBusy)
             {
                 ShowLoading("Deleting...");
-                bwUserDelete.RunWorkerAsync();
+                bwUserDelete.RunWorkerAsync(); // STARTING BACKGROUND WORK
             }
         }
 
+        // BACKGROUND WORK
         private void bwUserDelete_DoWork(object sender, DoWorkEventArgs e)
         {
-            Users.DeleteUser(txtUserName.Text, txtPassword.Text, txtFullName.Text, cmbPrivilege.Text);
+            // GETTING STATEMENTS SA USER.CS NGA FILE
+            Users.DeleteUser(txtUserName.Text, txtFullName.Text);
             bwUserDelete.CancelAsync();
         }
 
@@ -218,13 +252,26 @@ namespace BISU_AMS_Desktop
             HideLoading();
             if (Users.DeleteUserSucessful)
             {
+                //SHOW MESSEGE
                 MessageBox.Show("User Deleted!");
                 GetUserList();
+                txtPassword.Text = string.Empty;
+                //REPEATING CYCLE
             }
             else
                 MessageBox.Show(Users.DeleteUserErrorMessage);
         }
 
-        
+        //CANCEL BUTTON
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            txtUserName.Enabled = false;
+            txtPassword.Enabled = false;
+            txtFullName.Enabled = false;
+            cmbPrivilege.Enabled = false;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
+            CRUDEControl(true);
+        }
     }
 }
